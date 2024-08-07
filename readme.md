@@ -1,4 +1,4 @@
-![alt text](image.png)
+![alt text](query.png)
 
 ### according to image and query used  total images will be 
 
