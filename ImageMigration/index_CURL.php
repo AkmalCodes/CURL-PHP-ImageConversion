@@ -91,16 +91,16 @@ function webpImage($source, $quality = 100, $offset = 0)
 
 // $limit = 4;// Set the limit for the of records to retrieve
 $offset = 0; // Initial folder index
-$batch_size = 20; // Limit the number of concurrent downloads
-$initial_folder_index = 25; // Starting folder index
-$max_retries = 3; // Maximum number of retries for failed downloads
+$batch_size = 30; // Limit the number of concurrent downloads
+$initial_folder_index = 76; // Starting folder index
+$max_retries = 5; // Maximum number of retries for failed downloads
 
 // Fetch product records from the database
-$sql = "SELECT `id`, `category_id`, `sub_category_id`, `image`, `supp1`, `supp2`, `supp3`, `remark` FROM product WHERE id >= 5315 AND id <= 10534 ORDER BY id asc";
+$sql = "SELECT `id`, `category_id`, `sub_category_id`, `image`, `supp1`, `supp2`, `supp3`, `remark` FROM product WHERE id >= 15855 AND id <= 21689 ORDER BY id asc";
 //id thresholds 8,5314 done!    
-//id thresholds 5315,10534
-//id thresholds 10535,15854  
-//id thresholds15855,21689
+//id thresholds 5315,10534 done!
+//id thresholds 10535,15854 done!
+//id thresholds 15855,21689
 
 $rs = mq($sql);
 
