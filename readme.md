@@ -1,6 +1,6 @@
-![alt text](query.png)
+### according to image and query used, total images will be roughly 60000 images
 
-### according to image and query used  total images will be 
+![alt text](query.png)
 
 ```
 SELECT
@@ -13,6 +13,42 @@ WHERE id >= 1 AND id <= 21689;
 ```
 
 - This query counts all the selected columns which are image, supp1, supp2 and supp3 and counts data fields that have values in columns selected.
+
+### The downloads are seperated into batches based on query below
+
+![alt text](query2.png)
+
+```
+SELECT id
+FROM (
+    SELECT
+        id,
+        ROW_NUMBER() OVER (ORDER BY id ASC) AS item_number
+    FROM product
+   dummy_database WHERE id >= 1 AND id <= 21689
+    ORDER BY id ASC
+) AS numbered_products
+WHERE item_number = 1 OR item_number = 5000 OR item_number = 10000 OR item_number = 15000 OR item_number = 20817;
+
+```
+
+-ids 8 ==> 5314 done!    
+-ids 5315 ==> 10534 done!
+-ids 10535 ==> 15854 done!
+-ids 15855 ==> 21689 done!
+
+# '$' ranges from 0 - 104
+
+-updated table product with image paths products/web$/img
+
+# total number of folder for jpg and webp should be 104
+
+-using query below we can achieve total number of items
+```
+SELECT COUNT(*) AS total_rows
+FROM product;
+```
+![alt text](query3.png)
 
 ### PHP script using CURL
 
