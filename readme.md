@@ -1,4 +1,4 @@
-### according to image and query used, total images will be roughly 60000 images
+###e roughly 60000 images
 
 ![alt text](query.png)
 
@@ -14,9 +14,7 @@ WHERE id >= 1 AND id <= 21689;
 
 - This query counts all the selected columns which are image, supp1, supp2 and supp3 and counts data fields that have values in columns selected.
 
-### The downloads are seperated into batches based on query below
-
-![alt text](query2.png)
+# The downloads are seperated into batches based on query below
 
 ```
 SELECT id
@@ -32,16 +30,18 @@ WHERE item_number = 1 OR item_number = 5000 OR item_number = 10000 OR item_numbe
 
 ```
 
--ids 8 ==> 5314 done!    
--ids 5315 ==> 10534 done!
--ids 10535 ==> 15854 done!
--ids 15855 ==> 21689 done!
+![alt text](query2.png)
 
-# '$' ranges from 0 - 104
+- ids 8 ==> 5314 done!    
+- ids 5315 ==> 10534 done!
+- ids 10535 ==> 15854 done!
+- ids 15855 ==> 21689 done!
+
+#### '$' ranges from 0 - 104
 
 -updated table product with image paths products/web$/img
 
-# total number of folder for jpg and webp should be 104
+#### total number of folder for jpg and webp should be 104
 
 -using query below we can achieve total number of items
 ```
