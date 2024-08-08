@@ -1,4 +1,4 @@
-###e roughly 60000 images
+### roughly 60000 images
 
 ![alt text](query.png)
 
