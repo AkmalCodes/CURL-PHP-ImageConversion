@@ -1,4 +1,4 @@
-### roughly 60000 images
+# There are 59670 images to process
 
 ![alt text](query.png)
 
