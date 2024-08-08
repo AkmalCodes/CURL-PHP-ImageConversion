@@ -39,11 +39,11 @@ WHERE item_number = 1 OR item_number = 5000 OR item_number = 10000 OR item_numbe
 
 #### '$' ranges from 0 - 104
 
--updated table product with image paths products/web$/img
+- updated table product with image paths products/web$/img
 
 #### total number of folder for jpg and webp should be 104
 
--using query below we can achieve total number of items
+- using query below we can achieve total number of items
 ```
 SELECT COUNT(*) AS total_rows
 FROM product;
