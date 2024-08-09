@@ -14,7 +14,7 @@ WHERE id >= 1 AND id <= 21689;
 
 - This query counts all the selected columns which are image, supp1, supp2 and supp3 and counts data fields that have values in columns selected.
 
-# The downloads are seperated into batches based on query below
+### The downloads are seperated into batches based on query below
 
 ```
 SELECT id
@@ -53,3 +53,13 @@ FROM product;
 ### PHP script using CURL
 
 - PHPs built in function called CURL allows the ability to create http requests concurrently, this allows the multiple downloads of images at once.
+
+
+# We use python Pillow library for image deletion
+
+- Python Pillow library uses a image hasing method
+- different hues and saturation determines the quantity of the hashing
+- Images are deleted depending on the value of Threshold
+- Threshold determines the level of similarity 2 images should to be deleted
+
+### read more on python pillow here https://pillow.readthedocs.io/en/stable/
