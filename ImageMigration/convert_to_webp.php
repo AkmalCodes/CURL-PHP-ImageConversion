@@ -55,8 +55,8 @@ function convertToWebP($source, $destinationDir, $quality = 100)
     return true;
 }
 
-// Loop through folders img0 to img49
-for ($i = 0; $i < 50; $i++) {
+// Loop through folders img0 to img$
+for ($i = 75; $i < 105; $i++) {
     $imgFolder = "M:/images/products/img$i";
     $webpFolder = createFolder("M:/images/products/webp$i");
 

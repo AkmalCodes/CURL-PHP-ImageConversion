@@ -176,6 +176,7 @@ function bulk_image_rename($download_image, $image_name)
     'image/gif' => '.gif'
     // Other types as needed...
   );
+  global $offset;
 
   $folder_url = "M://images/products/test/img" . $offset . "/";
 
