@@ -92,15 +92,15 @@ function webpImage($source, $quality = 100, $offset = 0)
 // $limit = 4;// Set the limit for the of records to retrieve
 $offset = 0; // Initial folder index
 $batch_size = 30; // Limit the number of concurrent downloads
-$initial_folder_index = 76; // Starting folder index
+$initial_folder_index = 25; // Starting folder index
 $max_retries = 5; // Maximum number of retries for failed downloads
 
 // Fetch product records from the database
-$sql = "SELECT `id`, `category_id`, `sub_category_id`, `image`, `supp1`, `supp2`, `supp3`, `remark` FROM product WHERE id >= 15855 AND id <= 21689 ORDER BY id asc";
+$sql = "SELECT `id`, `category_id`, `sub_category_id`, `image`, `supp1`, `supp2`, `supp3`, `remark` FROM product WHERE id >= 15719 AND id <= 21689 ORDER BY id asc";
 //id thresholds 8,5314 done!    
 //id thresholds 5315,10534 done!
-//id thresholds 10535,15854 done!
-//id thresholds 15855,21689
+//id thresholds 10535,15718 done!
+//id thresholds 15719,21689
 
 $rs = mq($sql);
 
@@ -212,13 +212,13 @@ function processBatch($batch, $start_time, $max_retries)
                     echo "downloaded image: $url" . PHP_EOL;
 
                     // Verify the saved image before conversion
-                    if (getimagesize($img_stored_name) !== false) {
-                        // Convert the image to WebP format and save it in the 'webp' folder
-                        webpImage($img_stored_name, 100, $folderIndex);
-                        echo "downloaded webp: $img_stored_name" . PHP_EOL;
-                    } else {
-                        echo "Invalid image file: $img_stored_name\n";
-                    }
+                    // if (getimagesize($img_stored_name) !== false) {
+                    //     // Convert the image to WebP format and save it in the 'webp' folder
+                    //     webpImage($img_stored_name, 100, $folderIndex);
+                    //     echo "downloaded webp: $img_stored_name" . PHP_EOL;
+                    // } else {
+                    //     echo "Invalid image file: $img_stored_name\n";
+                    // }
                 } else {
                     echo "Failed to download image after $max_retries retries: $url\n";
                 }
