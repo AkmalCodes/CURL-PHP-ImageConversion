@@ -29,20 +29,20 @@ def process_folder(folder_path, reference_images, threshold=2):
 if __name__ == "__main__":
     # Specify the paths to the reference images
     reference_images = [
-        "C:/Akmal-intern/pythonscript/ref_images/tma5kw8xtkkcszqp.jpg",
-        "C:/Akmal-intern/pythonscript/ref_images/r18r320q9xrdpzaw.jpg",
-        "C:/Akmal-intern/pythonscript/ref_images/45vy4sfatc84u6b2.jpg",
-        "C:/Akmal-intern/pythonscript/ref_images/img2.jpg",
-        "C:/Akmal-intern/pythonscript/ref_images/img3.jpg",
-        "C:/Akmal-intern/pythonscript/ref_images/t34p69cpcuhyuj93.jpg",
-        "C:/Akmal-intern/pythonscript/ref_images/2ewtppeadetk2zen.jpg"
+        "C:/laragon/www/CURL-PHP-ImageConversion/pythonscript/ref_images/tma5kw8xtkkcszqp.jpg",
+        "C:/laragon/www/CURL-PHP-ImageConversion/pythonscript/ref_images/r18r320q9xrdpzaw.jpg",
+        "C:/laragon/www/CURL-PHP-ImageConversion/pythonscript/ref_images/45vy4sfatc84u6b2.jpg",
+        "C:/laragon/www/CURL-PHP-ImageConversion/pythonscript/ref_images/img2.jpg",
+        "C:/laragon/www/CURL-PHP-ImageConversion/pythonscript/ref_images/img3.jpg",
+        "C:/laragon/www/CURL-PHP-ImageConversion/pythonscript/ref_images/t34p69cpcuhyuj93.jpg",
+        "C:/laragon/www/CURL-PHP-ImageConversion/pythonscript/ref_images/2ewtppeadetk2zen.jpg",
         # Add more reference images as needed
     ]
 
     # Specify the folder to check
     # folder_to_check = "M:/images/products/img3"
     threshold = 10
-    for i in range(13, 51):
+    for i in range(51, 105):
         folder_to_check = f"M:/images/products/img{i}"
         print(f"Processing folder: {folder_to_check}")
         process_folder(folder_to_check, reference_images, threshold)
