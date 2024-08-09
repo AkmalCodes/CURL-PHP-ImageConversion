@@ -60,6 +60,6 @@ FROM product;
 - Python Pillow library uses a image hasing method
 - different hues and saturation determines the quantity of the hashing
 - Images are deleted depending on the value of Threshold
-- Threshold determines the level of similarity 2 images should to be deleted
+- Threshold determines the level of similarity 2 images should have for it to be deleted
 
 ### read more on python pillow here https://pillow.readthedocs.io/en/stable/
