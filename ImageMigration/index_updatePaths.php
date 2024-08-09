@@ -49,21 +49,37 @@ while ($r = mfa($rs)) {
 
     $webp_dir = "webp" . $directory_index;
 
-    // Update paths
+    // Update paths for regular products
     if (!empty($image)) {
-        $image = str_replace('../products/', "../images/products/$webp_dir/", $image);
+        if (strpos($image, '../products2024/') !== false) {
+            $image = str_replace('../products2024/', "../products/$webp_dir/", $image);
+        } else {
+            $image = str_replace('../products/', "../products/$webp_dir/", $image);
+        }
         $image = str_replace(['.png', '.jpg', '.jpeg'], '.webp', $image);
     }
     if (!empty($supp1)) {
-        $supp1 = str_replace('../products/', "../images/products/$webp_dir/", $supp1);
+        if (strpos($supp1, '../products2024/') !== false) {
+            $supp1 = str_replace('../products2024/', "../products/$webp_dir/", $supp1);
+        } else {
+            $supp1 = str_replace('../products/', "../products/$webp_dir/", $supp1);
+        }
         $supp1 = str_replace(['.png', '.jpg', '.jpeg'], '.webp', $supp1);
     }
     if (!empty($supp2)) {
-        $supp2 = str_replace('../products/', "../images/products/$webp_dir/", $supp2);
+        if (strpos($supp2, '../products2024/') !== false) {
+            $supp2 = str_replace('../products2024/', "../products/$webp_dir/", $supp2);
+        } else {
+            $supp2 = str_replace('../products/', "../products/$webp_dir/", $supp2);
+        }
         $supp2 = str_replace(['.png', '.jpg', '.jpeg'], '.webp', $supp2);
     }
     if (!empty($supp3)) {
-        $supp3 = str_replace('../products/', "../images/products/$webp_dir/", $supp3);
+        if (strpos($supp3, '../products2024/') !== false) {
+            $supp3 = str_replace('../products2024/', "../products/$webp_dir/", $supp3);
+        } else {
+            $supp3 = str_replace('../products/', "../products/$webp_dir/", $supp3);
+        }
         $supp3 = str_replace(['.png', '.jpg', '.jpeg'], '.webp', $supp3);
     }
 
