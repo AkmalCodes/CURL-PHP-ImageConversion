@@ -56,12 +56,13 @@ function convertToWebP($source, $destinationDir, $quality = 100)
 }
 
 // Loop through folders img0 to img$
-for ($i = 75; $i < 105; $i++) {
+for ($i = 0; $i < 25; $i++) {
     $imgFolder = "M:/images/products/img$i";
     $webpFolder = createFolder("M:/images/products/webp$i");
 
     // Get all image files in the img folder
-    $imgFiles = glob($imgFolder . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+    // $imgFiles = glob($imgFolder . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE); // convert all images
+    $imgFiles = glob($imgFolder . '/*_*.{jpg,jpeg,png,gif}', GLOB_BRACE); //only convert images that have _ at the end of file name
 
     // Convert each image to WebP format
     foreach ($imgFiles as $imgFile) {
