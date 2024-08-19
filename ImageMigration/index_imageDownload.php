@@ -50,53 +50,53 @@ function createFolder($basePath, $folderPrefix, $index)
 }
 
 // Function to convert images to WebP format
-function webpImage($source, $quality = 100, $offset = 0)
-{
-    // Create the WebP folder if it doesn't exist
-    $folder_url = createFolder("M://images/products", "webp", $offset);
-    $name = pathinfo($source, PATHINFO_FILENAME);
-    $destination = $folder_url . DIRECTORY_SEPARATOR . $name . '.webp';
-    $info = getimagesize($source);
-    $isAlpha = false;
+// function webpImage($source, $quality = 100, $offset = 0)
+// {
+//     // Create the WebP folder if it doesn't exist
+//     $folder_url = createFolder("M://images/products", "webp", $offset);
+//     $name = pathinfo($source, PATHINFO_FILENAME);
+//     $destination = $folder_url . DIRECTORY_SEPARATOR . $name . '.webp';
+//     $info = getimagesize($source);
+//     $isAlpha = false;
 
-    // Check image mime type and create image from source
-    if ($info['mime'] == 'image/jpeg') {
-        $image = @imagecreatefromjpeg($source);
-    } elseif ($isAlpha = $info['mime'] == 'image/gif') {
-        $image = @imagecreatefromgif($source);
-    } elseif ($isAlpha = $info['mime'] == 'image/png') {
-        $image = @imagecreatefrompng($source);
-    } else {
-        echo "Unsupported image type: $source\n";
-        return false;
-    }
+//     // Check image mime type and create image from source
+//     if ($info['mime'] == 'image/jpeg') {
+//         $image = @imagecreatefromjpeg($source);
+//     } elseif ($isAlpha = $info['mime'] == 'image/gif') {
+//         $image = @imagecreatefromgif($source);
+//     } elseif ($isAlpha = $info['mime'] == 'image/png') {
+//         $image = @imagecreatefrompng($source);
+//     } else {
+//         echo "Unsupported image type: $source\n";
+//         return false;
+//     }
 
-    if ($image === false) {
-        echo "Failed to create image from source: $source\n";
-        return false;
-    }
+//     if ($image === false) {
+//         echo "Failed to create image from source: $source\n";
+//         return false;
+//     }
 
-    // Preserve transparency for PNG and GIF
-    if ($isAlpha) {
-        imagepalettetotruecolor($image);
-        imagealphablending($image, true);
-        imagesavealpha($image, true);
-    }
+//     // Preserve transparency for PNG and GIF
+//     if ($isAlpha) {
+//         imagepalettetotruecolor($image);
+//         imagealphablending($image, true);
+//         imagesavealpha($image, true);
+//     }
 
-    // Convert and save the image as WebP
-    imagewebp($image, $destination, $quality);
+//     // Convert and save the image as WebP
+//     imagewebp($image, $destination, $quality);
 
-    return $destination;
-}
+//     return $destination;
+// }
 
 // $limit = 4;// Set the limit for the of records to retrieve
 $offset = 0; // Initial folder index
 $batch_size = 30; // Limit the number of concurrent downloads
-$initial_folder_index = 25; // Starting folder index
+$initial_folder_index = 105; // Starting folder index
 $max_retries = 5; // Maximum number of retries for failed downloads
 
 // Fetch product records from the database
-$sql = "SELECT `id`, `category_id`, `sub_category_id`, `image`, `supp1`, `supp2`, `supp3`, `remark` FROM product WHERE id >= 15719 AND id <= 21689 ORDER BY id asc";
+$sql = "SELECT `id`, `category_id`, `sub_category_id`, `image`, `supp1`, `supp2`, `supp3`, `remark` FROM product ORDER BY id asc";
 //id thresholds 8,5314 done!    
 //id thresholds 5315,10534 done!
 //id thresholds 10535,15718 done!
@@ -210,6 +210,7 @@ function processBatch($batch, $start_time, $max_retries)
                     $img_stored_name = $img_folder_url . DIRECTORY_SEPARATOR . $image_name . '.' . $extension;
                     file_put_contents($img_stored_name, $content);
                     echo "downloaded image: $url" . PHP_EOL;
+                    echo "stored image in : $img_folder_url" . PHP_EOL;
 
                     // Verify the saved image before conversion
                     // if (getimagesize($img_stored_name) !== false) {
